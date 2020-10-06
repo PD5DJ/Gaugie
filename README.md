@@ -1,9 +1,9 @@
 # Gaugie
  Another OpenTX Gauge widget for color lcd radio's
 
-![alt text](https://github.com/Hobby4life/Gaugie/blob/master/OTX-GaugieWDGT.png)
+![alt text](https://github.com/Hobby4life/Gaugie/blob/main/OTX-GaugieWDGT.png)
 
-![alt text](https://github.com/Hobby4life/Gaugie/blob/master/OTX-GaugieWDGT1.png)
+![alt text](https://github.com/Hobby4life/Gaugie/blob/main/OTX-GaugieWDGT1.png)
 
 ------------------------------------------------------------------------------------
 
