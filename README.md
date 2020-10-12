@@ -21,4 +21,4 @@ The gauge is a real gauge, with a frame arround it, and a good background for go
 
 An extra option is you can set “LipoGauge” the gauge will now represents itself as in green color changing gauge from 100% to 30% and then goes solid red from 30% to 0%.
 
-The widget automaticly resises to all widget layout sizes. including the topbar widget area.
+The widget automaticly rezises to all widget layout sizes. including the topbar widget area.
