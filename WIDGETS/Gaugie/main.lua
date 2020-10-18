@@ -8,13 +8,12 @@ local options = {
 }
 
 function create(zone, options,counter)
-	local context = { zone=zone, options=options, counter=0 }
-	Show_Gauge = 0
+	local context = { zone=zone, options=options}
   return context
 end
 
 local function background(context)
-  context.counter = context.counter + 1
+
 end
 
 -- This function returns green at 100%, red below 30% and graduate in betwwen
@@ -28,7 +27,7 @@ local function getPercentColor(cpercent)
     end
 end
 
-function drawGauge(context)
+local function drawGauge(context)
   
 	value = getValue(context.options.Source)
 
@@ -49,10 +48,12 @@ function drawGauge(context)
   --Define Source text size and set shadow color manually.
   lcd.setColor(CUSTOM_COLOR, lcd.RGB(0,0,0))
   FLAGS = CUSTOM_COLOR + SHADOWED
-  if context.zone.h < 98 then
+  if context.zone.h < 50 then
     FLAGS = FLAGS + SMLSIZE
-  elseif  context.zone.h > 170 then
+    elseif  context.zone.h > 170 then
     FLAGS = FLAGS + DBLSIZE
+  elseif context.zone.h >= 50 then
+    FLAGS = FLAGS
   else
     FLAGS = FLAGS + MIDSIZE
   end
@@ -62,10 +63,12 @@ function drawGauge(context)
   --Define Source and percentage text size and set foreground color manually.
   lcd.setColor(CUSTOM_COLOR, lcd.RGB(255,248,255))
 	FLAGS = CUSTOM_COLOR + SHADOWED
-	if context.zone.h < 98 then
+	if context.zone.h < 50 then
 		FLAGS = FLAGS + SMLSIZE
   elseif  context.zone.h > 170 then
     FLAGS = FLAGS + DBLSIZE
+  elseif context.zone.h >= 50 then
+    FLAGS = FLAGS    
   else
     FLAGS = FLAGS + MIDSIZE
   end
@@ -102,10 +105,6 @@ function drawGauge(context)
   lcd.drawRectangle( box_left , box_top , box_width , box_height , CUSTOM_COLOR )
   lcd.drawRectangle( box_left - 1, box_top + 1, box_width + 2,box_height - 2, CUSTOM_COLOR )
 
-
-  ---------- DEBUG ------------
-  --lcd.drawText(LCD_W / 2, LCD_H / 2, "W:"..context.zone.w..", H:"..context.zone.h,TEXT_COLOR)
-  --lcd.drawText(LCD_W / 2, LCD_H / 2 + 10, Show_Gauge,TEXT_COLOR)
 end
 
 function update(context, options)
